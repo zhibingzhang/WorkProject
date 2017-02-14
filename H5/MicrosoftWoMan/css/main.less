@@ -1,0 +1,135 @@
+/********************************************/
+/******************公共样式******************/
+/********************************************/
+.container{
+  font-size: 26/16rem;
+  color: #FFF;
+  text-align: center;
+}
+img{
+  display: inline-block;
+}
+// 第一屏
+.public-screen01{
+  background: #0078d7 url(../images/screen01_footer.png) no-repeat center 725px;
+  text-align: center;
+  color: #FFF;
+  .header{
+    height: 151px;
+    background: transparent url(../images/screen01_header.png) no-repeat;
+    padding: 75px 58px 0 58px;
+    text-align: left;
+    margin-bottom: 14px;
+    span{
+      float: right;
+    }
+    p{
+      display: inline-block;
+    }
+  }
+  .content{
+    margin-top: 27px;
+    p:nth-child(2){
+      margin: 12px 0 35px 0;
+    }
+    p:nth-child(3){
+      margin-left: 68px;
+    }
+    p:last-child{
+      font-size: 23.16/16rem;
+    }
+  }
+}
+//第二屏
+.public-screen02{
+  background: #0078d7 url(../images/screen02_footer_bg.png) no-repeat center 714px;
+  .container{
+    height: 693px;
+    background: #0078d7 url(../images/screen02_content_bg.png) no-repeat;
+    margin-top: 28px;
+    padding: 84px 58px;
+    text-align: left;
+    p{
+      margin-bottom: 26px;
+      line-height: 150%;
+    }
+    ul{
+      margin-top: -26px;
+      margin-bottom: 26px;
+      li{
+        line-height: 150%;
+        padding-left: 60px;
+        background: transparent url(../images/list_ioc.png) no-repeat 22px;
+      }
+    }
+  }
+  .footer{
+    padding-top: 58px;
+  }
+}
+// 第三屏
+.public-screen03{
+  background: #0078d7 url(../images/screen03_footer_bg.png) no-repeat center bottom;
+  padding: 20px 58px;
+  .txt{
+    text-align: left;
+    margin: 40px 0; 
+  }
+  .container{
+    p:last-child{
+      margin-top: 74px;
+    }
+  }
+}
+/**自定义动画**/
+.free_active{
+  animation: music 1.5s linear infinite;
+  -webkit-animation: music 1.5s linear infinite;
+  -moz-animation: music 1.5s linear infinite;
+  -ms-animation: music 1.5s linear infinite;
+  -o-animation: music 1.5s linear infinite;
+}
+@-webkit-keyframes music {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes music {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes music {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-o-keyframes music {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes music {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
+
