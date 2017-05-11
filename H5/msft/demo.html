@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹框</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: 'Microsoft YaHei UI','Microsoft YaHei',SimSun,'Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+        }
+        input,select{
+            border: none;
+        }
+        .close{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 20px;
+            top: 14px;
+            cursor: pointer;
+        }
+        /*弹框*/
+        .mak{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0,0,0,0.6);
+        }
+        .mak .mak-box{
+
+            width: 860px;
+            height: 566px;
+            background-color: #FFF;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -430px;
+            margin-top: -283px;
+        }
+        .mak .mak-box .tow-code{
+            text-align: center;
+        }
+        .mak .mak-box .tow-code img{
+            display: inline-block;
+        }
+        .mak .mak-box .code-info{
+            text-align: center;
+            line-height: 180%;
+            font-size: 14px;
+        }
+
+        /*弹框01*/
+        #mak01{
+            display: none;
+        }
+        /*弹框02*/
+        .mak #mak-box01{
+            background: #FFF url(images/mak02bg.png) no-repeat left top;
+            background-size: cover;
+        }
+        .mak #mak-box01 .wxtxt{
+            margin: 0px 60px 20px 60px;
+            line-height: 1.5;
+        }
+        .mak .mak-box .select-box{
+            position: relative;
+            top: 40px;
+            height: 46px;
+            padding: 0 60px;
+        }
+        .mak .mak-box .wxhead{
+            height: 162px;
+            background: #8fe9da url(images/wxheadbg.png) no-repeat 510px center;
+        }
+        .mak .mak-box .wxhead p{
+            color: #065144;
+            margin-left: 60px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .mak .mak-box .wxhead p.wxtxt-tit{
+            font-size: 27px;
+            padding: 55px 0 20px 0;
+        }
+        .wxtxt-tit{
+            color: #1470a5;
+            margin-left: 60px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 27px;
+            padding: 48px 0 20px 0;
+        }
+        .mak .mak-box .select-box .select-ioc{
+            position: absolute;
+            z-index: 999;
+            left: 194px;
+            pointer-events: none;
+        }
+        .mak .mak-box .btns{
+            margin-top: 100px;
+        }
+        .mak .mak-box .btns .submit-btn{
+            width: 136px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #32a693;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+        .mak .mak-box .select-box .select{
+            width: 168px;
+            height: 30px;
+            border: 1px solid #b3b3b3;
+            position: relative;
+        }
+        .mak .mak-box .select-box input{
+            padding: 0;
+            height: 28px;
+            width: 470px;
+            border: 1px solid #b3b3b3;
+        }
+        .mak .mak-box .prompt-box{
+            font-size: 14px;
+            margin-top: 53px;
+            padding: 0 60px;
+        }
+        .mak .mak-box .prompt-box p:nth-child(1){
+            font-weight: bold;
+        }
+        .mak .mak-box .prompt-box ul,.mak .mak-box .prompt-box ul li{
+            margin: 0;
+            padding: 0;
+        }
+        .mak .mak-box .prompt-box ul{
+            margin-left: 26px;
+            margin-top: 15px;
+        }
+        .mak .mak-box .prompt-box ul li{
+            margin-bottom: 10px;
+            line-height: 150%;
+        }
+        #mak02{
+            display: block;
+        }
+        /*按钮*/
+        .submit-btn{
+            display: block;
+            width: 230px;
+            height: 55px;
+            line-height: 55px;
+            background-color: #00d7a6;
+            color: #FFF;
+            font-size: 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /*banner*/
+        .banner{
+            width: 100%;
+            height: 196px;
+            background-color: #e9faf6;
+            padding: 62px 0;
+        }
+        .banner .main{
+            width: 1170px;
+            margin: 0 auto;
+            background: transparent url(images/bannerbg.png) no-repeat right center;
+        }
+        .banner .main h2{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .banner .main .txt-info{
+            font-size: 16px;
+            width: 686px;
+            margin-top: 25px;
+        }
+        .banner .main .submit-btn{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!--弹出框-->
+    <div id="mak01" class="mak">
+        <div id="mak-box01" class="mak-box">
+            <div class="close" id="close01">
+                <img src="images/close.png" width="30" height="30" alt="close is ioc" />
+            </div>
+            <p class="wxtxt-tit">关注微软合作伙伴学院微信企业号</p>
+            <p class="wxtxt">您的信息已进入微信后台，请扫描下面的二维码进入微信企业号，根据您之前选择的方式，腾讯会邀请您填写验证码，输入验证码您会关注成功。</p>
+            <p class="tow-code">
+                <img id='tow-code' src="images/tow-code.png" width="244" height="301" alt="tow is code" />
+            </p>
+            <p class="code-info">扫一扫<br />关于MSFT合作伙伴云睿社区<br />即刻开始学习之旅</p>
+        </div>
+    </div>
+    <div id="mak02" class="mak">
+        <div class="mak-box">
+            <div class="close" id="close02">
+                <img src="images/close.png" width="30" height="30" alt="close is ioc" />
+            </div>
+            <div class="wxhead">
+                <p class="wxtxt-tit">关联微软合作伙伴学院微信企业号</p>
+                <p class="wxtxt" id='random'></p>
+            </div>
+            <div class="select-box">
+                <div class="select-ioc">
+                    <img src="images/select-ioc.png" width="33" height="30" />
+                </div>
+                <select id="select" class="select">
+                    <option value="0">微信号</option>
+                    <option value="1">微信号绑定的手机号</option>
+                    <option value ="2">工作邮箱</option>
+                    <option value ="3">手机号码</option>
+                </select>
+                <input id="wxinp" type="text" />
+            </div>
+            <div class="btns">
+                <a id="next-btn" class="submit-btn" href="#" role="button" type="button">下一步</a>
+            </div>
+            <div class="prompt-box">
+                <p>提示：</p>
+                <ul>
+                    <li>如果您使用您的工作邮箱及手机号码关联，根据腾讯规则，腾讯会邀请您再次输入上述信息，输入正确后可成为我们的粉丝。</li>
+                    <li>如果您使用微信号及微信绑定的手机号码关联该企业号，根据腾讯规则，您可直接成为我们的粉丝。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+    <div class="banner">
+        <div class="main">
+            <h2>开启一场说走就走的学习之旅</h2>
+            <p class="txt-info">“微软合作伙伴云睿社区”手机客户端平台现已上线，大家可以充分利用碎片时间，在2016年9月30日前通过手机端在线学习，可获得10枚云币的奖励。前100名关注企业号并通过手机端学习的学员还将额外获得50枚云币奖励哦！ </p>
+            <!--按钮-->
+            <a id="weix-btn" class="submit-btn" href="#" role="button" type="button">关联微信</a>
+        </div>
+    </div>
+
+
+
+    <!--关闭弹窗-->
+    <script type="text/javascript">
+        var weix_btn = document.getElementById("weix-btn");
+            weix_btn.addEventListener("click",function(){
+                document.getElementById("mak02").style.display = 'block';
+            });
+        //下一步按钮
+        var next_btn = document.getElementById("next-btn");
+            next_btn.addEventListener("click",function(){
+                document.getElementById("mak01").style.display = 'block';
+                document.getElementById("mak02").style.display = 'none';
+
+                var select = document.getElementById("select");
+                var index = select.selectedIndex;
+                var value = select.options[index].value;
+
+                var arr = ["微信号","微信号绑定的手机号","工作邮箱","手机号码"];
+                switch (parseInt(value)){
+                    case 0: inp(arr[0]); break;
+                    case 1: inp(arr[1]); break;
+                    case 2: inp(arr[2]); break;
+                    case 3: inp(arr[3]); break;
+                }
+            });
+
+
+        var close01 = document.getElementById("close01");
+            close01.addEventListener("click",function(){
+                document.getElementById("mak01").style.display = 'none';
+            });
+
+        var close02 = document.getElementById("close02");
+        close02.addEventListener("click",function(){
+            document.getElementById("mak02").style.display = 'none';
+        });
+        function inp(val){
+            document.getElementById("wxinp").value = val;
+        }
+
+        var data_txt = ['出差在外，移动学院来助力，各种技能随身携带！','课程私人订制，认证即时挑战，随时随地做学霸！','私人秘书随身带，让碎片时间得到合理安排！','用线上课程自行答疑解惑，云睿社区就是你的掌上云百科！','还没关注云睿社区？即刻关注体会移动学习新奥义。'];
+        var data_tow_code = ['tow-code1.jpg','tow-code2.jpg','tow-code3.jpg','tow-code4.jpg'];
+        var random = parseInt(4*Math.random());
+        var random_towcode = parseInt(3*Math.random());
+        document.getElementById('random').innerHTML = data_txt[random];
+        document.getElementById('tow-code').setAttribute('src','images/'+data_tow_code[random_towcode]);
+    </script>
+</body>
+</html>

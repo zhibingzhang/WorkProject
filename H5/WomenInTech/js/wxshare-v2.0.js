@@ -40,8 +40,8 @@ $.ajax({
 wx.ready(function() {
     function getShareData(shareType) {
         return shareData = {
-            title: '微软女性开发者沙龙邀请函',
-            desc: '一个专为女性开发者打造的分享与交流平台，参与活动更有精美礼品！',
+            title: '微软&Women Who Code 女性开发者沙龙欢迎您',
+            desc: '这是一场专为科技行业女性开发者定制的沙龙。',
             link: 'http://eventhub03.anruichina.com/MicrosoftWoMan/index.html',
             imgUrl: 'http://eventhub03.anruichina.com/MicrosoftWoMan/images/wx.jpg',
             success: function(res) {
